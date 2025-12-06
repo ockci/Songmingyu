@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>송민규 전교회장 후보</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* 상단 헤더 */
+        .top-header {
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .top-header h1 {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        /* 메인 컨테이너 */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 0 80px 0;
+        }
+
+        /* 히어로 섹션 */
+        .hero-section {
+            position: relative;
+            height: 400px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 25px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: 2em;
+            font-weight: 800;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .hero-subtitle {
+            font-size: 1.05em;
+            opacity: 0.95;
+        }
+
+        /* 섹션 */
+        .section {
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 15px;
+            padding-left: 5px;
+        }
+
+        /* 이미지 카드 */
+        .image-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .image-card:active {
+            transform: scale(0.98);
+        }
+
+        .card-image-wrap {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
+            color: white;
+        }
+
+        .card-category {
+            font-size: 0.8em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* 카드 컨텐츠 */
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-description {
+            font-size: 0.95em;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .detail-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .detail-list li {
+            padding: 8px 0 8px 20px;
+            color: #475569;
+            font-size: 0.9em;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .detail-list li::before {
+            content: "•";
+            color: #10b981;
+            font-weight: bold;
+            position: absolute;
+            left: 5px;
+        }
+
+        /* 보상 뱃지 */
+        .reward-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #92400e;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        /* 작은 카드 그리드 */
+        .small-card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .small-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .small-card-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        .small-card-content {
+            padding: 12px;
+        }
+
+        .small-card-title {
+            font-size: 0.9em;
+            font-weight: 700;
+            color: #1e293b;
+            line-height: 1.4;
+        }
+
+        /* 정보 박스 */
+        .info-box {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .info-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .info-text {
+            font-size: 0.9em;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* 버튼 */
+        .primary-button {
+            width: 100%;
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1em;
+            font-weight: 700;
+            margin-top: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .primary-button:active {
+            transform: scale(0.98);
+        }
+
+        /* 하단 네비게이션 */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .nav-item {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.7em;
+            flex: 1;
+        }
+
+        .nav-item.active {
+            color: #10b981;
+        }
+
+        .nav-icon {
+            font-size: 1.8em;
+            margin-bottom: 3px;
+        }
+
+        /* 태그 */
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        /* 프로필 카드 */
+        .profile-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 3px solid #10b981;
+        }
+
+        .profile-name {
+            font-size: 1.8em;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+
+        .profile-role {
+            color: #64748b;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        .profile-slogan {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            color: #2563eb;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 상단 헤더 -->
+    <div class="top-header">
+        <h1>송민규 전교회장 후보</h1>
+    </div>
+
+    <!-- 메인 컨테이너 -->
+    <div class="container">
+        <!-- 히어로 섹션 -->
+        <div class="hero-section">
+            <!-- 여기에 메인 사진 경로 넣으세요! -->
+            <img src="images/mingyu_main.jpg" alt="송민규 후보" class="hero-image">
+            <div class="hero-overlay">
+                <div class="hero-badge"># 신뢰 # 소통 # 실천</div>
+                <div class="hero-title">한표의 무게를 아는<br>회장이 되겠습니다</div>
+                <div class="hero-subtitle">송민규 전교회장 후보</div>
+            </div>
+        </div>
+
+        <!-- 프로필 카드 -->
+        <div class="profile-card">
+            <!-- 여기에 프로필 사진 경로 넣으세요! -->
+            <img src="images/mingyu_profile.jpg" alt="송민규" class="profile-image">
+            <div class="profile-name">송민규</div>
+            <div class="profile-role">전교회장 후보</div>
+            <div class="profile-slogan">
+                거창하지 않지만 꼭 지킬 수 있는 공약으로<br>
+                우리 학교를 바꾸겠습니다
+            </div>
+        </div>
+
+        <!-- 4대 공약 섹션 -->
+        <div class="section">
+            <h2 class="section-title">📋 송민규의 4대 공약</h2>
+
+            <!-- 공약 1 -->
+            <div class="image-card">
+                <div class="card-image-wrap">
+                    <!-- 공약 1 이미지 (선택사항 - 원하면 실제 사진으로 교체) -->
+                    <img src="images/promise1.jpg" alt="친구사랑" class="card-image">
+                    <div class="card-image-overlay">
+                        <div class="card-category">공약 1</div>
+                        <div class="card-title">친구사랑 학급 대항전</div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-description">
+                        친구 사랑 실천으로 안전하고 따뜻한 학교를 만들겠습니다
+                    </div>
+                    <ul class="detail-list">
+                        <li>매달 친구사랑 실천 테마 (인사, 칭찬, 도움, 고운 말)</li>
+                        <li>학급별 포인트 적립 (칭찬 쪽지 1점, 친구 도움 2점)</li>
+                        <li>폭력 없는 따뜻한 학교 만들기</li>
+                    </ul>
+                    <div class="reward-badge">
+                        🎁 월별 1등: 상장 + 과자 꾸러미
+                    </div>
+                </div>
+            </div>
+
+            <!-- 공약 2 -->
+            <div class="image-card">
+                <div class="card-image-wrap">
+                    <!-- 공약 2 이미지 (선택사항 - 원하면 실제 사진으로 교체) -->
+                    <img src="images/promise2.jpg" alt="분리수거" class="card-image">
+                    <div class="card-image-overlay">
+                        <div class="card-category">공약 2</div>
+                        <div class="card-title">분리수거 캠페인</div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-description">
+                        환경을 생각하고 깨끗한 학교를 만들겠습니다
+                    </div>
+                    <ul class="detail-list">
+                        <li>주 1회 학급 청결도 체크 (금요일)</li>
+                        <li>별점 5점 만점 평가</li>
+                        <li>환경 보호 실천으로 지구 지키기</li>
+                    </ul>
+                    <div class="reward-badge">
+                        🎁 월별 1등: 상장 + 과자 꾸러미
+                    </div>
+                </div>
+            </div>
+
+            <!-- 공약 3 -->
+            <div class="image-card">
+                <div class="card-image-wrap">
+                    <!-- 공약 3 이미지 (선택사항 - 원하면 실제 사진으로 교체) -->
+                    <img src="images/promise3.jpg" alt="급식" class="card-image">
+                    <div class="card-image-overlay">
+                        <div class="card-category">공약 3</div>
+                        <div class="card-title">학생 급식 의견 반영</div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-description">
+                        여러분의 급식 의견을 학교에 전달하겠습니다
+                    </div>
+                    <ul class="detail-list">
+                        <li>월 1회 희망 메뉴 조사 (치킨, 피자, 떡볶이 등)</li>
+                        <li>급식 만족도 조사</li>
+                        <li>급식 의견함 운영 → 학교에 건의</li>
+                    </ul>
+                    <div class="tags">
+                        <div class="tag">학생 의견 중심</div>
+                        <div class="tag">적극 건의</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 공약 4 -->
+            <div class="image-card">
+                <div class="card-image-wrap">
+                    <!-- 공약 4 이미지 (선택사항 - 원하면 실제 사진으로 교체) -->
+                    <img src="images/promise4.jpg" alt="재미있는 학교" class="card-image">
+                    <div class="card-image-overlay">
+                        <div class="card-category">공약 4</div>
+                        <div class="card-title">재미있는 학교</div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-description">
+                        다양한 활동으로 즐거운 학교를 만들겠습니다
+                    </div>
+                    <ul class="detail-list">
+                        <li>점심시간 음악방송 (신청곡 & 생일 축하)</li>
+                        <li>학급 대항 스포츠 활동</li>
+                        <li>동아리 활동 활성화</li>
+                    </ul>
+                    <div class="tags">
+                        <div class="tag">즐거운 학교</div>
+                        <div class="tag">다양한 활동</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 세부 공약 그리드 -->
+        <div class="section">
+            <h2 class="section-title">💡 실천 가능한 공약</h2>
+            <div class="small-card-grid">
+                <div class="small-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='120'%3E%3Crect width='200' height='120' fill='%23fef3c7'/%3E%3Ctext x='50%25' y='50%25' font-size='30' text-anchor='middle' dy='.3em'%3E🎁%3C/text%3E%3C/svg%3E"
+                        alt="" class="small-card-image">
+                    <div class="small-card-content">
+                        <div class="small-card-title">학생회 예산으로 보상 운영</div>
+                    </div>
+                </div>
+                <div class="small-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='120'%3E%3Crect width='200' height='120' fill='%23dbeafe'/%3E%3Ctext x='50%25' y='50%25' font-size='30' text-anchor='middle' dy='.3em'%3E👨‍🏫%3C/text%3E%3C/svg%3E"
+                        alt="" class="small-card-image">
+                    <div class="small-card-content">
+                        <div class="small-card-title">선생님과 상의하여 실천</div>
+                    </div>
+                </div>
+                <div class="small-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='120'%3E%3Crect width='200' height='120' fill='%23d1fae5'/%3E%3Ctext x='50%25' y='50%25' font-size='30' text-anchor='middle' dy='.3em'%3E💬%3C/text%3E%3C/svg%3E"
+                        alt="" class="small-card-image">
+                    <div class="small-card-content">
+                        <div class="small-card-title">학생 의견 적극 반영</div>
+                    </div>
+                </div>
+                <div class="small-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='120'%3E%3Crect width='200' height='120' fill='%23e9d5ff'/%3E%3Ctext x='50%25' y='50%25' font-size='30' text-anchor='middle' dy='.3em'%3E✅%3C/text%3E%3C/svg%3E"
+                        alt="" class="small-card-image">
+                    <div class="small-card-content">
+                        <div class="small-card-title">작은 것부터 차근차근</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 약속 -->
+        <div class="section">
+            <div class="info-box">
+                <div class="info-title">✨ 송민규의 약속</div>
+                <div class="info-text">
+                    거창하지 않지만 꼭 지킬 수 있는 공약을 만들었습니다.<br>
+                    선생님과 상의하고 여러분의 의견을 들으며 실천하겠습니다.<br><br>
+                    <strong style="color: #10b981;">작은 변화부터 시작해서 함께 만들어가요! 💪</strong>
+                </div>
+                <button class="primary-button">송민규에게 한 표!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 하단 네비게이션 -->
+    <div class="bottom-nav">
+        <div class="nav-container">
+            <div class="nav-item active">
+                <div class="nav-icon">🏠</div>
+                <div>홈</div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-icon">📋</div>
+                <div>공약</div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-icon">💬</div>
+                <div>소통</div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-icon">👤</div>
+                <div>프로필</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
